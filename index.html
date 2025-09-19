@@ -117,7 +117,7 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
         div.className = 'exchange';
 
         if (speaker.trim().toLowerCase() === 'jonathan') {
-          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content)}</div>`;
+          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content, 0.2)}</div>`;
         } else {
           div.innerHTML = `<div class="interviewer"><strong>${speaker.trim()}:</strong> ${content}</div>`;
         }
@@ -126,21 +126,22 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
       });
     }
 
-    function applyGaps(text) {
+    function applyGaps(text, density = 0.2) {
       const words = text.split(' ');
-      const numGaps = Math.floor(words.length * 0.12);
+      const numGaps = Math.floor(words.length * density);
       const gapIndices = new Set();
 
       while (gapIndices.size < numGaps) {
         const i = Math.floor(Math.random() * words.length);
-        if (!words[i].includes('<span')) gapIndices.add(i);
+        const clean = words[i].replace(/[.,!?;:()]/g, '');
+        if (!words[i].includes('<span') && clean.length > 2) gapIndices.add(i);
       }
 
       return words.map((word, i) => {
         const clean = word.replace(/[.,!?;:()]/g, '');
         const punctuation = word.match(/[.,!?;:()]+$/);
-        if (gapIndices.has(i) && clean.length > 2) {
-          return `<span class="gap" data-word="${clean}">${'_'.repeat(clean.length)}</span>${punctuation ? punctuation[0] : ''}`;
+        if (gapIndices.has(i)) {
+          return `<span class="gap" data-word="${clean}">__________</span>${punctuation ? punctuation[0] : ''}`;
         }
         return word;
       }).join(' ');
