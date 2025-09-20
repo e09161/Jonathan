@@ -66,7 +66,7 @@
 </head>
 <body>
 
-  <h2>🎤 Full Interview Practice: Hover to Reveal</h2>
+  <h2>🎤 Expert-Level Interview Practice: Hover to Reveal</h2>
   <div id="interview"></div>
   <button onclick="generateGaps()">🔄 New Gaps</button>
 
@@ -117,7 +117,7 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
         div.className = 'exchange';
 
         if (speaker.trim().toLowerCase() === 'jonathan') {
-          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content, 0.2)}</div>`;
+          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content, 0.3)}</div>`;
         } else {
           div.innerHTML = `<div class="interviewer"><strong>${speaker.trim()}:</strong> ${content}</div>`;
         }
@@ -126,7 +126,7 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
       });
     }
 
-    function applyGaps(text, density = 0.2) {
+    function applyGaps(text, density = 0.3) {
       const words = text.split(' ');
       const numGaps = Math.floor(words.length * density);
       const gapIndices = new Set();
