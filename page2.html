@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica de Entrevista: Jonathan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #fefefe;
+    }
+    .exchange {
+      margin-bottom: 24px;
+    }
+    .interviewer {
+      font-weight: bold;
+      color: #2a2a2a;
+      margin-bottom: 6px;
+    }
+    .jonathan {
+      margin-left: 20px;
+    }
+    .gap {
+      position: relative;
+      border-bottom: 2px dotted #555;
+      cursor: pointer;
+      color: black;
+    }
+    .gap::after {
+      content: attr(data-word);
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      background: #f9f9f9;
+      color: #333;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      white-space: nowrap;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    .gap:hover::after {
+      opacity: 1;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎤 Práctica de Entrevista: Nivel Experto</h2>
+  <div id="interview"></div>
+  <button onclick="generateGaps()">🔄 Nuevos espacios en blanco</button>
+
+  <script>
+    const originalText = `
+Entrevistador: Buenas tardes, y gracias por acompañarnos hoy. Comencemos con algo sencillo: ¿puedes contarnos un poco sobre ti?
+
+Jonathan: Gracias por invitarme. Mi nombre es Jonathan Joaquín Landa Medrano, y soy estudiante del último año en el colegio Saco Oliveros en Lima. He estado constantemente entre el 10% superior de mi clase y he recibido reconocimientos nacionales en competencias de matemáticas. Me apasiona la Ingeniería Mecatrónica porque combina lógica, creatividad y resolución de problemas reales — y me he estado preparando para este camino mediante aceleración académica, programación y proyectos prácticos.
+
+Entrevistador: ¿Qué te inspiró a seguir esta carrera?
+
+Jonathan: Todo comenzó con mi fascinación por entender cómo funcionan las cosas — desde sistemas mecánicos hasta algoritmos. Cuando participé en el III Torneo de Jóvenes Matemáticos y obtuve 90/100, me di cuenta de cuánto disfruto resolver problemas complejos. Eso me llevó a explorar la robótica y la automatización, y desde entonces me siento atraído por la Mecatrónica. Es un campo donde puedo construir, optimizar e innovar.
+
+Entrevistador: Cuéntanos sobre un desafío que hayas enfrentado y cómo lo superaste.
+
+Jonathan: Prepararme para los exámenes de ingreso a la universidad mientras asumía responsabilidades personales fue un gran desafío. Creé una rutina de estudio disciplinada, despertándome temprano para repasar materiales y simular exámenes. También apoyé a vecinos mayores en mi comunidad durante la pandemia, lo cual me enseñó gestión del tiempo y empatía. Equilibrar ambas cosas me ayudó a crecer académica y personalmente.
+
+Entrevistador: ¿Cuál es el logro del que te sientes más orgulloso?
+
+Jonathan: Me siento orgulloso de haber ganado la Medalla de Oro en la Olimpiada EDUMATT y de haber clasificado a la Fase 2 de ONEM XXI con un puntaje de 90/100. Estos logros reflejan años de preparación y un profundo amor por las matemáticas. También estoy orgulloso de haber cofundado el club de ajedrez de mi colegio — organizar torneos y orientar a estudiantes más jóvenes me ayudó a desarrollar liderazgo y pensamiento estratégico.
+
+Entrevistador: ¿Por qué estás solicitando esta beca?
+
+Jonathan: Esta beca me permitiría acceder a educación superior sin imponer una carga financiera a mi familia. Actualmente soy parte del programa Beca Cometa, que prepara a estudiantes para postular a universidades en EE.UU., y veo esta beca como un puente hacia oportunidades donde pueda crecer, contribuir y representar al Perú con orgullo.
+
+Entrevistador: ¿Cómo planeas usar tu educación para generar un impacto?
+
+Jonathan: Quiero aplicar la Ingeniería Mecatrónica para resolver desafíos de infraestructura y automatización en América Latina. Ya sea diseñando sistemas eficientes o desarrollando tecnologías accesibles, creo que mi educación puede ayudar a mejorar la calidad de vida e impulsar la innovación en zonas desatendidas.
+
+Entrevistador: ¿Dónde te ves en cinco años?
+
+Jonathan: Me veo estudiando Ingeniería Mecatrónica en una universidad de prestigio, contribuyendo a investigaciones en robótica y sistemas inteligentes, y colaborando a nivel internacional — incluso he comenzado a aprender mandarín para ampliar mi perspectiva global. Espero participar en proyectos que combinen ingeniería con impacto social.
+
+Entrevistador: ¿Hay algo más que te gustaría que supiéramos?
+
+Jonathan: Sí — me gustaría que supieran que todo lo que he logrado ha sido fruto del esfuerzo, no de atajos. Cuando fui promovido un grado adelante, tuve que demostrar que merecía estar allí. Cuando equilibré los estudios con responsabilidades familiares, aprendí resiliencia. Y cuando no encontré un espacio para liderar, lo creé a través del club de ajedrez de mi colegio. Estas experiencias moldearon mi forma de enfrentar los desafíos — con disciplina, iniciativa y propósito. Cada sesión de estudio al amanecer, cada competencia, cada obstáculo — los he tratado como pasos hacia algo más grande. Esta beca no es solo una meta; es el siguiente capítulo de una historia que he estado escribiendo con convicción. Estoy listo para continuarla.
+`;
+
+    function generateGaps() {
+      const container = document.getElementById('interview');
+      container.innerHTML = '';
+
+      const blocks = originalText.trim().split('\n\n');
+      blocks.forEach(block => {
+        const [speaker, ...rest] = block.split(':');
+        const content = rest.join(':').trim();
+        const div = document.createElement('div');
+        div.className = 'exchange';
+
+        if (speaker.trim().toLowerCase() === 'jonathan') {
+          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content, 0.3)}</div>`;
+        } else {
+          div.innerHTML = `<div class="interviewer"><strong>${speaker.trim()}:</strong> ${content}</div>`;
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    function applyGaps(text, density = 0.3) {
+      const words = text.split(' ');
+      const numGaps = Math.floor(words.length * density);
+      const gapIndices = new Set();
+
+      while (gapIndices.size < numGaps) {
+        const i = Math.floor(Math.random() * words.length);
+        const clean = words[i].replace(/[.,!?;:()]/g, '');
+        if (!words[i].includes('<span') && clean.length > 2) gapIndices.add(i);
+      }
+
+      return words.map((word, i) => {
+        const clean = word.replace(/[.,!?;:()]/g, '');
+        const punctuation = word.match(/[.,!?;:()]+$/);
+        if (gapIndices.has(i)) {
+          return `<span class="gap" data-word="${clean}">__________</span>${punctuation ? punctuation[0] : ''}`;
+        }
+        return word;
+      }).join(' ');
+    }
+
+    generateGaps(); // render inicial
+  </script>
+
+</body>
+</html>
