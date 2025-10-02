@@ -148,4 +148,5 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
       return words.map((word, i) => {
         const clean = word.replace(/[.,!?;:()]/g, '');
         const punctuation = word.match(/[.,!?;:()]+$/);
-        if (gap
+        if (gapIndices.has(i)) {
+          return `<span class="gap" data-word="${clean}
