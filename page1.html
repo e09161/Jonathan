@@ -1,3 +1,15 @@
+Thanks for the clarification, Greg — here's the full HTML code with the entire interview text directly embedded inside the DOM (not stored in a JavaScript variable). This version:
+
+- ✅ Displays the full interview immediately on page load  
+- 🔥 Applies ~50% gap density to Jonathan’s responses  
+- 🖱️ Hover-to-reveal tooltips for each missing word  
+- 🔄 Includes a button to regenerate gaps  
+
+---
+
+### ✅ Final HTML: Expert++ Cloze Interview Practice (Text in DOM)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,92 +79,39 @@
 <body>
 
   <h2>🎤 Expert++ Interview Practice: Hover to Reveal</h2>
-  <div id="interview"></div>
-  <button onclick="generateGaps()">🔄 New Gaps</button>
+  <div id="interview">
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Good afternoon, and thank you for joining us today. Let’s start with something simple — can you tell us a bit about yourself?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> Thank you for having me. My name is Jonathan Joaquín Landa Medrano, and I’m a senior at Saco Oliveros School in Lima. I’ve consistently ranked in the top 10% of my class and earned national recognition in mathematics competitions. I’m passionate about Mechatronic Engineering because it blends logic, creativity, and real-world problem solving — and I’ve been preparing for this path through academic acceleration, programming, and hands-on projects.</div></div>
 
-  <script>
-    const originalText = `
-Interviewer: Good afternoon, and thank you for joining us today. Let’s start with something simple — can you tell us a bit about yourself?
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> What inspired you to pursue this field?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> It started with my fascination for how things work — from mechanical systems to algorithms. When I competed in the III Young Mathematicians Tournament and scored 90/100, I realized how much I enjoy solving complex problems. That led me to explore robotics and automation, and I’ve been drawn to Mechatronics ever since. It’s a field where I can build, optimize, and innovate.</div></div>
 
-Jonathan: Thank you for having me. My name is Jonathan Joaquín Landa Medrano, and I’m a senior at Saco Oliveros School in Lima. I’ve consistently ranked in the top 10% of my class and earned national recognition in mathematics competitions. I’m passionate about Mechatronic Engineering because it blends logic, creativity, and real-world problem solving — and I’ve been preparing for this path through academic acceleration, programming, and hands-on projects.
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Tell us about a challenge you’ve faced and how you overcame it.</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> Preparing for university entrance exams while managing personal responsibilities was a major challenge. I created a disciplined study routine, often waking early to review materials and simulate mock exams. I also supported elderly neighbors in my community during the pandemic, which taught me time management and empathy. Balancing both helped me grow academically and personally.</div></div>
 
-Interviewer: What inspired you to pursue this field?
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> What achievement are you most proud of?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> I’m proud of earning a Gold Medal in the EDUMATT Olympiad and qualifying for Phase 2 of ONEM XXI with a score of 90/100. These reflect years of preparation and a deep love for mathematics. I’m also proud of co-founding my school’s chess club — organizing tournaments and mentoring younger players helped me develop leadership and strategic thinking.</div></div>
 
-Jonathan: It started with my fascination for how things work — from mechanical systems to algorithms. When I competed in the III Young Mathematicians Tournament and scored 90/100, I realized how much I enjoy solving complex problems. That led me to explore robotics and automation, and I’ve been drawn to Mechatronics ever since. It’s a field where I can build, optimize, and innovate.
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Why are you applying for this scholarship?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> This scholarship would allow me to pursue higher education without placing a financial burden on my family. I’m currently part of the Beca Cometa program, which prepares students for U.S. university applications, and I see this scholarship as a bridge to opportunities where I can grow, contribute, and represent Peru with pride.</div></div>
 
-Interviewer: Tell us about a challenge you’ve faced and how you overcame it.
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> How do you plan to use your education to make a difference?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> I want to apply Mechatronic Engineering to solve infrastructure and automation challenges in Latin America. Whether it’s designing efficient systems or developing accessible technologies, I believe my education can help improve quality of life and drive innovation in underserved areas.</div></div>
 
-Jonathan: Preparing for university entrance exams while managing personal responsibilities was a major challenge. I created a disciplined study routine, often waking early to review materials and simulate mock exams. I also supported elderly neighbors in my community during the pandemic, which taught me time management and empathy. Balancing both helped me grow academically and personally.
-
-Interviewer: What achievement are you most proud of?
-
-Jonathan: I’m proud of earning a Gold Medal in the EDUMATT Olympiad and qualifying for Phase 2 of ONEM XXI with a score of 90/100. These reflect years of preparation and a deep love for mathematics. I’m also proud of co-founding my school’s chess club — organizing tournaments and mentoring younger players helped me develop leadership and strategic thinking.
-
-Interviewer: Why are you applying for this scholarship?
-
-Jonathan: This scholarship would allow me to pursue higher education without placing a financial burden on my family. I’m currently part of the Beca Cometa program, which prepares students for U.S. university applications, and I see this scholarship as a bridge to opportunities where I can grow, contribute, and represent Peru with pride.
-
-Interviewer: How do you plan to use your education to make a difference?
-
-Jonathan: I want to apply Mechatronic Engineering to solve infrastructure and automation challenges in Latin America. Whether it’s designing efficient systems or developing accessible technologies, I believe my education can help improve quality of life and drive innovation in underserved areas.
-
-Interviewer: What would giving back to your community look like for you?
-
-Jonathan: In that sense, I would love to organize robotics or basic technology workshops for students, especially in areas where they don’t have easy access to these tools. I think showing them that science and innovation can be something close and accessible could motivate them to dream big and believe that they can also have a future in these fields.
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> What would giving back to your community look like for you?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> In that sense, I would love to organize robotics or basic technology workshops for students, especially in areas where they don’t have easy access to these tools. I think showing them that science and innovation can be something close and accessible could motivate them to dream big and believe that they can also have a future in these fields.
 
 I also want to contribute by being an example: showing that with effort, perseverance, and commitment it is possible to take advantage of the opportunities that come along. I would like to be a bridge between what I learn abroad and what my community needs, whether by sharing knowledge, supporting educational projects, or even developing initiatives that could have a direct social impact.
 
-In short, I believe I could help not only by coming back with a degree, but with the genuine intention of sharing what I have learned and opening doors so that others also have the chance to grow.
+In short, I believe I could help not only by coming back with a degree, but with the genuine intention of sharing what I have learned and opening doors so that others also have the chance to grow.</div></div>
 
-Interviewer: Where do you see yourself in five years?
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Where do you see yourself in five years?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> I see myself studying Mechatronic Engineering at a top university, contributing to research in robotics and intelligent systems, and collaborating internationally — I’ve even started learning Mandarin to expand my global perspective. I hope to be involved in projects that blend engineering with social impact.</div></div>
 
-Jonathan: I see myself studying Mechatronic Engineering at a top university, contributing to research in robotics and intelligent systems, and collaborating internationally — I’ve even started learning Mandarin to expand my global perspective. I hope to be involved in projects that blend engineering with social impact.
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Why should we give the scholarship to you and not another person?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> I believe I bring a unique combination of academic excellence, personal resilience, and a deep commitment to social impact. My achievements reflect not just talent, but discipline and perseverance in the face of challenges. I’ve consistently sought ways to uplift others — through mentoring, community support, and leadership — and I see this scholarship not just as a personal opportunity, but as a responsibility to give back.
 
-Interviewer: Why should we give the scholarship to you and not another person?
+I’m not asking to be chosen because I’m better than someone else, but because I’m ready to make the most of this opportunity and turn it into something bigger than myself. I want to represent my country, inspire others, and build bridges between knowledge and action. If given the chance, I will carry this scholarship with pride, purpose, and a promise to pay it forward.</div></div>
 
-Jonathan: I believe I bring a unique combination of academic excellence, personal resilience, and a deep commitment to social impact. My achievements reflect not just talent, but discipline and perseverance in the face of challenges. I’ve consistently sought ways to uplift others — through mentoring, community support, and leadership — and I see this scholarship not just as a personal opportunity, but as a responsibility to give back.
-
-I’m not asking to be chosen because I’m better than someone else, but because I’m ready to make the most of this opportunity and turn it into something bigger than myself. I want to represent my country, inspire others, and build bridges between knowledge and action. If given the chance, I will carry this scholarship with pride, purpose, and a promise to pay it forward.
-
-Interviewer: Is there anything else you’d like us to know?
-
-Jonathan: Yes — I’d like you to know that everything I’ve achieved has come from effort, not shortcuts. When I was promoted a grade ahead, I had to prove I belonged. When I balanced academics with family responsibilities, I learned resilience. And when I couldn’t find a space to lead, I created one through my school’s chess club. These experiences shaped how I approach challenges — with discipline, initiative, and purpose. Every early morning study session, every competition, every setback — I’ve treated them as steps toward something bigger. This scholarship isn’t just a goal; it’s the next chapter in a journey I’ve been writing with conviction. I’m ready to carry it forward.
-`;
-
-    function generateGaps() {
-      const container = document.getElementById('interview');
-      container.innerHTML = '';
-
-      const blocks = originalText.trim().split('\n\n');
-      blocks.forEach(block => {
-        const [speaker, ...rest] = block.split(':');
-        const content = rest.join(':').trim();
-        const div = document.createElement('div');
-        div.className = 'exchange';
-
-        if (speaker.trim().toLowerCase() === 'jonathan') {
-          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${applyGaps(content, 0.5)}</div>`;
-        } else {
-          div.innerHTML = `<div class="interviewer"><strong>${speaker.trim()}:</strong> ${content}</div>`;
-        }
-
-        container.appendChild(div);
-      });
-    }
-
-    function applyGaps(text, density = 0.5) {
-      const words = text.split(' ');
-      const numGaps = Math.floor(words.length * density);
-      const gapIndices = new Set();
-
-      while (gapIndices.size < numGaps) {
-        const i = Math.floor(Math.random() * words.length);
-        const clean = words[i].replace(/[.,!?;:()]/g, '');
-        if (!words[i].includes('<span') && clean.length > 1) gapIndices.add(i);
-      }
-
-      return words.map((word, i) => {
-        const clean = word.replace(/[.,!?;:()]/g, '');
-        const punctuation = word.match(/[.,!?;:()]+$/);
-        if (gapIndices.has(i)) {
-          return `<span class="gap"
+    <div class="exchange"><div class="interviewer"><strong>Interviewer:</strong> Is there anything else you’d like us to know?</div></div>
+    <div class="exchange"><div class="jonathan"><strong>Jonathan:</strong> Yes — I’d like you to know that everything I’ve achieved has come from effort, not shortcuts. When I was promoted a grade ahead, I had to prove I belonged. When I balanced academics with family responsibilities, I learned resilience. And when I couldn’t find a space to lead, I created one through my school’s chess club. These experiences shaped how I approach challenges — with discipline, initiative, and purpose. Every early morning study session, every competition, every setback — I’ve treated them as steps toward something bigger. This scholarship isn’t just a goal; it’s the next chapter in a
