@@ -59,3 +59,313 @@
     }
     
     .exchange:hover {
+      background-color: #f9f9f9;
+    }
+    
+    .interviewer {
+      font-weight: bold;
+      color: var(--dark-text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .interviewer::before {
+      content: "👤";
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .jonathan {
+      margin-left: 10px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .jonathan::before {
+      content: "🎓";
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .gap {
+      position: relative;
+      border-bottom: 2px dotted var(--gap-color);
+      cursor: pointer;
+      color: transparent;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: 0 4px;
+      transition: all 0.2s;
+    }
+    
+    .gap:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .gap::after {
+      content: attr(data-word);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--tooltip-bg);
+      color: #333;
+      padding: 6px 10px;
+      border: 1px solid var(--tooltip-border);
+      border-radius: 4px;
+      white-space: nowrap;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .gap:hover::after {
+      opacity: 1;
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .stats {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      padding-top: 15px;
+      border-top: 1px solid #eaeaea;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      
+      .exchange {
+        padding: 10px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎤 Jonathan's Interview Practice</h1>
+    <p class="subtitle">Hover over the gaps to reveal the hidden words</p>
+  </header>
+  
+  <div class="instructions">
+    <strong>How to use:</strong> Read through the interview and hover over the blank spaces to reveal the hidden words. 
+    Click "New Gaps" to generate a new set of blanks, or "Show All" to reveal all answers at once.
+  </div>
+
+  <div id="interview"></div>
+  
+  <div class="controls">
+    <button onclick="generateGaps()">
+      <span>🔄</span> New Gaps
+    </button>
+    <button onclick="showAllAnswers()">
+      <span>👁️</span> Show All Answers
+    </button>
+    <button onclick="resetInterview()">
+      <span>↩️</span> Reset Interview
+    </button>
+  </div>
+  
+  <div class="stats">
+    <span id="gapCount">0 gaps</span> in this version
+  </div>
+  
+  <footer>
+    Practice makes perfect! Keep refining your interview skills.
+  </footer>
+
+  <script>
+    const originalText = `Interviewer: Good afternoon, and thank you for joining us today. Let's start with something simple — can you tell us a bit about yourself?
+
+Jonathan: Thank you for having me. My name is Jonathan Joaquín Landa Medrano, and I'm a senior at Saco Oliveros School in Lima. I've consistently ranked in the top 10% of my class and earned national recognition in mathematics competitions. I'm passionate about Mechatronic Engineering because it blends logic, creativity, and real-world problem solving — and I've been preparing for this path through academic acceleration, programming, and hands-on projects.
+
+Interviewer: What inspired you to pursue this field?
+
+Jonathan: It started with my fascination for how things work — from mechanical systems to algorithms. When I competed in the III Young Mathematicians Tournament and scored 90/100, I realized how much I enjoy solving complex problems. That led me to explore robotics and automation, and I've been drawn to Mechatronics ever since. It's a field where I can build, optimize, and innovate.
+
+Interviewer: Tell us about a challenge you've faced and how you overcame it.
+
+Jonathan: Preparing for university entrance exams while managing personal responsibilities was a major challenge. I created a disciplined study routine, often waking early to review materials and simulate mock exams. I also supported elderly neighbors in my community during the pandemic, which taught me time management and empathy. Balancing both helped me grow academically and personally.
+
+Interviewer: What achievement are you most proud of?
+
+Jonathan: I'm proud of earning a Gold Medal in the EDUMATT Olympiad and qualifying for Phase 2 of ONEM XXI with a score of 90/100. These reflect years of preparation and a deep love for mathematics. I'm also proud of co-founding my school's chess club — organizing tournaments and mentoring younger players helped me develop leadership and strategic thinking.
+
+Interviewer: Why are you applying for this scholarship?
+
+Jonathan: This scholarship would allow me to pursue higher education without placing a financial burden on my family. I'm currently part of the Beca Cometa program, which prepares students for U.S. university applications, and I see this scholarship as a bridge to opportunities where I can grow, contribute, and represent Peru with pride.
+
+Interviewer: How do you plan to use your education to make a difference?
+
+Jonathan: I want to apply Mechatronic Engineering to solve infrastructure and automation challenges in Latin America. Whether it's designing efficient systems or developing accessible technologies, I believe my education can help improve quality of life and drive innovation in underserved areas.
+
+Interviewer: What would giving back to your community look like for you?
+
+Jonathan: In that sense, I would love to organize robotics or basic technology workshops for students, especially in areas where they don't have easy access to these tools. I think showing them that science and innovation can be something close and accessible could motivate them to dream big and believe that they can also have a future in these fields. I also want to contribute by being an example: showing that with effort, perseverance, and commitment it is possible to take advantage of the opportunities that come along. I would like to be a bridge between what I learn abroad and what my community needs, whether by sharing knowledge, supporting educational projects, or even developing initiatives that could have a direct social impact. In short, I believe I could help not only by coming back with a degree, but with the genuine intention of sharing what I have learned and opening doors so that others also have the chance to grow.
+
+Interviewer: Why should we give the scholarship to you and not another person?
+
+Jonathan: I believe I bring a unique combination of academic excellence, personal resilience, and a deep commitment to social impact. My achievements reflect not just talent, but discipline and perseverance in the face of challenges. I've consistently sought ways to uplift others — through mentoring, community support, and leadership — and I see this scholarship not just as a personal opportunity, but as a responsibility to give back. I'm not asking to be chosen because I'm better than someone else, but because I'm ready to make the most of this opportunity and turn it into something bigger than myself. I want to represent my country, inspire others, and build bridges between knowledge and action. If given the chance, I will carry this scholarship with pride, purpose, and a promise to pay it forward.
+
+Interviewer: Where do you see yourself in five years?
+
+Jonathan: I see myself studying Mechatronic Engineering at a top university, contributing to research in robotics and intelligent systems, and collaborating internationally — I've even started learning Mandarin to expand my global perspective. I hope to be involved in projects that blend engineering with social impact.
+
+Interviewer: Is there anything else you'd like us to know?
+
+Jonathan: Yes — I'd like you to know that everything I've achieved has come from effort, not shortcuts. When I was promoted a grade ahead, I had to prove I belonged. When I balanced academics with family responsibilities, I learned resilience. And when I couldn't find a space to lead, I created one through my school's chess club. These experiences shaped how I approach challenges — with discipline, initiative, and purpose. Every early morning study session, every competition, every setback — I've treated them as steps toward something bigger. This scholarship isn't just a goal; it's the next chapter in a journey I've been writing with conviction. I'm ready to carry it forward.`;
+
+    let currentGaps = [];
+
+    function generateGaps() {
+      const container = document.getElementById('interview');
+      container.innerHTML = '';
+
+      // Split the text into blocks by looking for "Interviewer:" or "Jonathan:"
+      const blocks = [];
+      let currentBlock = '';
+      
+      const lines = originalText.split('\n');
+      for (const line of lines) {
+        if (line.startsWith('Interviewer:') || line.startsWith('Jonathan:')) {
+          if (currentBlock) {
+            blocks.push(currentBlock);
+          }
+          currentBlock = line;
+        } else if (currentBlock) {
+          currentBlock += '\n' + line;
+        }
+      }
+      
+      if (currentBlock) {
+        blocks.push(currentBlock);
+      }
+
+      currentGaps = [];
+      
+      blocks.forEach(block => {
+        const firstColonIndex = block.indexOf(':');
+        const speaker = block.substring(0, firstColonIndex);
+        const content = block.substring(firstColonIndex + 1).trim();
+        
+        const div = document.createElement('div');
+        div.className = 'exchange';
+
+        if (speaker.trim().toLowerCase() === 'jonathan') {
+          const { textWithGaps, gaps } = applyGaps(content, 0.5);
+          currentGaps = [...currentGaps, ...gaps];
+          div.innerHTML = `<div class="jonathan"><strong>${speaker.trim()}:</strong> ${textWithGaps}</div>`;
+        } else {
+          div.innerHTML = `<div class="interviewer"><strong>${speaker.trim()}:</strong> ${content}</div>`;
+        }
+
+        container.appendChild(div);
+      });
+      
+      updateStats();
+    }
+
+    function applyGaps(text, density = 0.5) {
+      const words = text.split(' ');
+      const numGaps = Math.floor(words.length * density);
+      const gapIndices = new Set();
+      const gaps = [];
+
+      while (gapIndices.size < numGaps) {
+        const i = Math.floor(Math.random() * words.length);
+        const clean = words[i].replace(/[.,!?;:()]/g, '');
+        if (!words[i].includes('<span') && clean.length > 1) gapIndices.add(i);
+      }
+
+      const textWithGaps = words.map((word, i) => {
+        const clean = word.replace(/[.,!?;:()]/g, '');
+        const punctuation = word.match(/[.,!?;:()]+$/);
+        if (gapIndices.has(i)) {
+          gaps.push(clean);
+          return `<span class="gap" data-word="${clean}">__________</span>${punctuation ? punctuation[0] : ''}`;
+        }
+        return word;
+      }).join(' ');
+      
+      return { textWithGaps, gaps };
+    }
+    
+    function showAllAnswers() {
+      const gaps = document.querySelectorAll('.gap');
+      gaps.forEach(gap => {
+        gap.style.color = '#333';
+        gap.style.backgroundColor = 'transparent';
+        gap.style.borderBottom = 'none';
+      });
+    }
+    
+    function resetInterview() {
+      generateGaps();
+    }
+    
+    function updateStats() {
+      const gapCount = document.getElementById('gapCount');
+      gapCount.textContent = `${currentGaps.length} gaps`;
+    }
+
+    // Initialize the page
+    generateGaps();
+  </script>
+
+</body>
+</html>
