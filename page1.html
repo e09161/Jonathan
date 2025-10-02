@@ -96,9 +96,17 @@ Interviewer: How do you plan to use your education to make a difference?
 
 Jonathan: I want to apply Mechatronic Engineering to solve infrastructure and automation challenges in Latin America. Whether it’s designing efficient systems or developing accessible technologies, I believe my education can help improve quality of life and drive innovation in underserved areas.
 
+Interviewer: What would giving back to your community look like for you?
+
+Jonathan: In that sense, I would love to organize robotics or basic technology workshops for students, especially in areas where they don’t have easy access to these tools. I think showing them that science and innovation can be something close and accessible could motivate them to dream big and believe that they can also have a future in these fields. I also want to contribute by being an example: showing that with effort, perseverance, and commitment it is possible to take advantage of the opportunities that come along. I would like to be a bridge between what I learn abroad and what my community needs, whether by sharing knowledge, supporting educational projects, or even developing initiatives that could have a direct social impact. In short, I believe I could help not only by coming back with a degree, but with the genuine intention of sharing what I have learned and opening doors so that others also have the chance to grow.
+
 Interviewer: Where do you see yourself in five years?
 
 Jonathan: I see myself studying Mechatronic Engineering at a top university, contributing to research in robotics and intelligent systems, and collaborating internationally — I’ve even started learning Mandarin to expand my global perspective. I hope to be involved in projects that blend engineering with social impact.
+
+Interviewer: Why should we give the scholarship to you and not another person?
+
+Jonathan: I believe I bring a unique combination of academic excellence, personal resilience, and a deep commitment to social impact. My achievements reflect not just talent, but discipline and perseverance in the face of challenges. I’ve consistently sought ways to uplift others — through mentoring, community support, and leadership — and I see this scholarship not just as a personal opportunity, but as a responsibility to give back. I’m not asking to be chosen because I’m better than someone else, but because I’m ready to make the most of this opportunity and turn it into something bigger than myself. I want to represent my country, inspire others, and build bridges between knowledge and action. If given the chance, I will carry this scholarship with pride, purpose, and a promise to pay it forward.
 
 Interviewer: Is there anything else you’d like us to know?
 
@@ -140,15 +148,4 @@ Jonathan: Yes — I’d like you to know that everything I’ve achieved has com
       return words.map((word, i) => {
         const clean = word.replace(/[.,!?;:()]/g, '');
         const punctuation = word.match(/[.,!?;:()]+$/);
-        if (gapIndices.has(i)) {
-          return `<span class="gap" data-word="${clean}">__________</span>${punctuation ? punctuation[0] : ''}`;
-        }
-        return word;
-      }).join(' ');
-    }
-
-    generateGaps(); // initial render
-  </script>
-
-</body>
-</html>
+        if (gap
