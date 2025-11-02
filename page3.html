@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Jonathan — Entrevista de Admisión PUCP</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.8; padding: 20px; max-width: 900px; margin: auto; background-color: #fefefe; }
+    .exchange { margin-bottom: 24px; }
+    .interviewer { font-weight: bold; color: #2a2a2a; margin-bottom: 6px; }
+    .jonathan { margin-left: 20px; }
+    .gap { position: relative; border-bottom: 2px dotted #555; cursor: pointer; color: black; }
+    .gap::after { content: attr(data-word); position: absolute; bottom: 100%; left: 0; background: #f9f9f9; color: #333; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; white-space: nowrap; font-size: 14px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 10; }
+    .gap:hover::after { opacity: 1; }
+    button { margin-top: 30px; padding: 10px 15px; font-size: 16px; background-color: #0078d4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #005fa3; }
+  </style>
+</head>
+<body>
+
+  <h2>🎤 Entrevista PUCP — Práctica con espacios ocultos</h2>
+  <div id="interview"></div>
+  <button onclick="generateGaps()">🔄 Nuevos espacios</button>
+
+  <script>
+    const originalText = `
+Entrevistador: ¿Por qué elegiste esta carrera?
+
+Jonathan: Elegí Ingeniería Mecatrónica porque combina mi pasión por las matemáticas, la resolución de problemas y la creatividad. La veo como un campo donde puedo diseñar soluciones con impacto real en la sociedad.
+
+Entrevistador: ¿Qué te atrae de estudiar en la PUCP?
+
+Jonathan: La PUCP es reconocida por su excelencia académica y sus programas de ingeniería. Me atrae especialmente la posibilidad de participar en proyectos de investigación y aprender de docentes líderes en sus áreas.
+
+Entrevistador: ¿Cómo te ves profesionalmente en cinco años?
+
+Jonathan: En cinco años me veo culminando mi carrera, contribuyendo en investigaciones de robótica y automatización, y aplicando mis conocimientos en proyectos que mejoren la eficiencia y la calidad de vida en el Perú.
+
+Entrevistador: ¿Cuáles son tus fortalezas y debilidades?
+
+Jonathan: Mis fortalezas son la disciplina, la perseverancia y el pensamiento analítico. Una debilidad que estoy trabajando es ser demasiado autoexigente, pero estoy aprendiendo a equilibrar esfuerzo con bienestar.
+
+Entrevistador: ¿Qué materias te gustan más y por qué?
+
+Jonathan: Me gustan las matemáticas y la física porque me retan a pensar con lógica y son la base de la ingeniería. También disfruto la programación porque me permite crear aplicaciones prácticas.
+
+Entrevistador: ¿Cómo manejas el estrés o los retos académicos?
+
+Jonathan: Organizo mi tiempo cuidadosamente, divido los problemas en pasos pequeños y busco apoyo de compañeros o profesores cuando lo necesito. Además, practico deporte y ajedrez para despejar la mente.
+
+Entrevistador: ¿Has participado en proyectos, voluntariados o actividades extracurriculares?
+
+Jonathan: Sí, cofundé el club de ajedrez en mi colegio, organicé torneos y enseñé a estudiantes más jóvenes. También apoyé a vecinos adultos mayores durante la pandemia, lo que me enseñó empatía y responsabilidad.
+
+Entrevistador: ¿Tienes experiencia laboral relacionada con tu carrera?
+
+Jonathan: Aunque no he tenido empleo formal, he participado en competencias y proyectos que simulan retos reales de ingeniería, como olimpiadas de matemáticas y robótica.
+
+Entrevistador: ¿Qué habilidades has desarrollado fuera del aula?
+
+Jonathan: He desarrollado liderazgo, trabajo en equipo y comunicación a través de actividades extracurriculares. El ajedrez también fortaleció mi pensamiento estratégico y la paciencia.
+
+Entrevistador: ¿Qué sabes sobre la malla curricular de tu carrera en la PUCP?
+
+Jonathan: Sé que combina fundamentos sólidos en matemáticas y física con cursos especializados en electrónica, mecánica y programación. Además, fomenta la investigación y la innovación.
+
+Entrevistador: ¿Conoces algún docente o proyecto destacado de la PUCP?
+
+Jonathan: Conozco los grupos de investigación en robótica y su participación en competencias internacionales. Admiro cómo la universidad promueve la innovación y la colaboración.
+
+Entrevistador: ¿Qué esperas aprender en esta universidad?
+
+Jonathan: Espero adquirir no solo conocimientos técnicos, sino también pensamiento crítico, ética profesional y habilidades de trabajo en equipo que me preparen para contribuir como ingeniero.
+
+Entrevistador: ¿Cómo actuarías ante un dilema ético en tu carrera?
+
+Jonathan: Actuaría con honestidad, transparencia y responsabilidad. Creo que la ética es esencial para generar confianza y asegurar que la tecnología beneficie a las personas.
+
+Entrevistador: ¿Qué significa para ti la responsabilidad social?
+
+Jonathan: Significa usar mis conocimientos para aportar a la comunidad, reducir desigualdades y crear oportunidades. Para mí, la educación y la tecnología deben estar al servicio de la sociedad.
+
+Entrevistador: ¿Cómo contribuirías al ambiente universitario?
+
+Jonathan: Participaría activamente en organizaciones estudiantiles, compartiría mis conocimientos con mis compañeros y promovería una cultura de respeto y colaboración.
+
+Entrevistador: Si tuvieras que liderar un equipo en un proyecto, ¿cómo lo harías?
+
+Jonathan: Establecería metas claras, asignaría roles según fortalezas y fomentaría la comunicación abierta. Creo en liderar con el ejemplo y motivar desde el respeto.
+
+Entrevistador: ¿Qué harías si tuvieras un conflicto con un compañero de grupo?
+
+Jonathan: Escucharía su punto de vista, expresaría el mío con respeto y buscaría un acuerdo que beneficie al equipo. Si fuera necesario, pediría mediación.
+
+Entrevistador: ¿Cómo resolverías un problema académico que te impide avanzar?
+
+Jonathan: Analizaría la causa, pediría orientación a docentes o tutores y dedicaría tiempo extra para dominar el tema. La perseverancia y pedir ayuda son claves para superar obstáculos.
+`;
+
+    function generateGaps() {
+      const container = document.getElementById('interview');
+      container.innerHTML = '';
+
+      const blocks = originalText.trim().split('\n\n');
+      blocks.forEach(block => {
+        const idx = block.indexOf(':');
+        if (idx === -1) return;
+        const speaker = block.slice(0, idx).trim();
+        const content = block.slice(idx + 1).trim();
+
+        const div = document.createElement('div');
+        div.className = 'exchange';
+
+        if (speaker.toLowerCase() === 'jonathan') {
+          div.innerHTML = `<div class="jonathan"><strong>${speaker}:</strong> ${applyGaps(content, 0.45)}</div>`;
+        } else {
+          div.innerHTML = `<div class="interviewer"><strong>${speaker}:</strong> ${content}</div>`;
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    function applyGaps(text, density = 0.45) {
+      const words = text.split(/\s+/);
+      const numGaps = Math.max(1, Math.floor(words.length * density));
+      const gapIndices = new Set();
+
+      while (gapIndices.size < numGaps) {
+        const i = Math.floor(Math.random() * words.length);
+        const clean = words[i].replace(/^[^\wáéíóúüñ]+|[^\wáéíóúüñ]+$/gi, '');
+        if (clean.length > 2) gapIndices.add(i);
+      }
+
+      return words.map((word, i) => {
+        const leading = (word.match(/^[^\wáéíóúüñ]+/gi) || [''])[0];
+        const trailing = (word.match(/[^\wáéíóúüñ]+$/gi) || [''])[0];
+        const core = word.replace(/^[^\wáéíóúüñ]+|[^\wáéíóúüñ]+$/gi, '');
+        if (gapIndices.has(i)) {
+          return `${leading}<span class="gap" data-word="${core}">__________</span>${trailing}`;
+        }
+        return word;
+      }).join(' ');
+    }
+
+    generateGaps();
+  </script>
+
+</body>
+</html>
