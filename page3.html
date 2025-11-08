@@ -13,6 +13,7 @@
     .gap:hover::after { opacity: 1; }
     button { margin-top: 30px; padding: 10px 15px; font-size: 16px; background-color: #0078d4; color: white; border: none; border-radius: 4px; cursor: pointer; }
     button:hover { background-color: #005fa3; }
+    .section { margin-top: 28px; padding-top: 8px; border-top: 1px solid #eee; color: #444; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -23,71 +24,211 @@
 
   <script>
     const originalText = `
-Entrevistador: ¿Por qué elegiste esta carrera?
-Jonathan: Elegí Ingeniería Mecatrónica porque combina mi pasión por las matemáticas, la resolución de problemas y la creatividad. La veo como un campo donde puedo diseñar soluciones con impacto real en la sociedad.
+Sección: Preguntas sobre Motivación y Objetivos Personales
 
-Entrevistador: ¿Qué te atrae de estudiar en la PUCP?
-Jonathan: La PUCP es reconocida por su excelencia académica y sus programas de ingeniería. Me atrae especialmente la posibilidad de participar en proyectos de investigación y aprender de docentes líderes en sus áreas.
+Entrevistador: ¿Por qué elegiste esta carrera en particular y qué esperas lograr al estudiarla en la PUCP?
+Jonathan: Elegí Ingeniería Mecatrónica porque me apasiona unir la ciencia con la creatividad para resolver problemas reales. En la PUCP espero formarme con rigor, participar en investigación y aportar proyectos útiles para la sociedad.
 
-Entrevistador: ¿Cómo te ves profesionalmente en cinco años?
-Jonathan: En cinco años me veo culminando mi carrera, contribuyendo en investigaciones de robótica y automatización, y aplicando mis conocimientos en proyectos que mejoren la eficiencia y la calidad de vida en el Perú.
+Entrevistador: ¿Qué significa para ti recibir una beca de la PUCP y cómo cambiaría tu vida académica y personal?
+Jonathan: Significa confianza y oportunidad. La beca me daría estabilidad económica, acceso a acompañamiento académico y me permitiría enfocarme en aprender, crecer y contribuir a la comunidad universitaria.
 
-Entrevistador: ¿Cuáles son tus fortalezas y debilidades?
-Jonathan: Mis fortalezas son la disciplina, la perseverancia y el pensamiento analítico. Una debilidad que estoy trabajando es ser demasiado autoexigente, pero estoy aprendiendo a equilibrar esfuerzo con bienestar.
+Entrevistador: ¿Cuáles son tus metas a corto y largo plazo en el ámbito profesional y personal?
+Jonathan: A corto plazo, adaptarme a la vida universitaria y destacar en cursos fundamentales. A largo plazo, liderar proyectos de automatización responsable y promover tecnología accesible que impacte positivamente.
 
-Entrevistador: ¿Qué materias te gustan más y por qué?
-Jonathan: Me gustan las matemáticas y la física porque me retan a pensar con lógica y son la base de la ingeniería. También disfruto la programación porque me permite crear aplicaciones prácticas.
+Entrevistador: ¿Cómo imaginas tu vida después de graduarte y qué impacto te gustaría tener en la sociedad?
+Jonathan: Me imagino trabajando en soluciones de robótica aplicadas a salud, educación o industria sostenible. Quiero que mi trabajo mejore procesos y abra oportunidades para más personas.
 
-Entrevistador: ¿Cómo manejas el estrés o los retos académicos?
-Jonathan: Organizo mi tiempo cuidadosamente, divido los problemas en pasos pequeños y busco apoyo de compañeros o profesores cuando lo necesito. Además, practico deporte y ajedrez para despejar la mente.
+Sección: Preguntas sobre Intereses y Experiencia Académica
 
-Entrevistador: ¿Has participado en proyectos, voluntariados o actividades extracurriculares?
-Jonathan: Sí, cofundé el club de ajedrez en mi colegio, organicé torneos y enseñé a estudiantes más jóvenes. También apoyé a vecinos adultos mayores durante la pandemia, lo que me enseñó empatía y responsabilidad.
+Entrevistador: ¿Qué asignaturas son tus favoritas y por qué?
+Jonathan: Matemáticas y física porque explican cómo funciona el mundo y sostienen la ingeniería. Programación también, porque me permite transformar ideas en aplicaciones prácticas.
 
-Entrevistador: ¿Tienes experiencia laboral relacionada con tu carrera?
-Jonathan: Aunque no he tenido empleo formal, he participado en competencias y proyectos que simulan retos reales de ingeniería, como olimpiadas de matemáticas y robótica.
+Entrevistador: Cuéntanos sobre un proyecto o actividad académica que te haya entusiasmado mucho.
+Jonathan: Diseñé con mi equipo un prototipo de vehículo autónomo para un concurso escolar. Aprendí a integrar sensores, control y trabajo colaborativo para alcanzar un objetivo común.
 
-Entrevistador: ¿Qué habilidades has desarrollado fuera del aula?
-Jonathan: He desarrollado liderazgo, trabajo en equipo y comunicación a través de actividades extracurriculares. El ajedrez también fortaleció mi pensamiento estratégico y la paciencia.
+Entrevistador: ¿Tienes algún mentor, profesor o figura que haya influido en tu decisión de estudiar esta carrera?
+Jonathan: Sí, mi profesor de física me inspiró con su pasión y claridad. Me mostró que la ingeniería puede convertir conocimiento en soluciones que ayudan a la gente.
 
-Entrevistador: ¿Qué sabes sobre la malla curricular de tu carrera en la PUCP?
-Jonathan: Sé que combina fundamentos sólidos en matemáticas y física con cursos especializados en electrónica, mecánica y programación. Además, fomenta la investigación y la innovación.
+Entrevistador: ¿Qué habilidades consideras esenciales para tener éxito en la carrera que elegiste?
+Jonathan: Disciplina, pensamiento crítico, curiosidad constante y trabajo en equipo. También comunicación efectiva para presentar ideas y escuchar aportes de otros.
 
-Entrevistador: ¿Conoces algún docente o proyecto destacado de la PUCP?
-Jonathan: Conozco los grupos de investigación en robótica y su participación en competencias internacionales. Admiro cómo la universidad promueve la innovación y la colaboración.
+Sección: Preguntas sobre Valores Personales y Compromiso Social
 
-Entrevistador: ¿Qué esperas aprender en esta universidad?
-Jonathan: Espero adquirir no solo conocimientos técnicos, sino también pensamiento crítico, ética profesional y habilidades de trabajo en equipo que me preparen para contribuir como ingeniero.
+Entrevistador: ¿Por qué crees que la PUCP es una buena elección para ti? ¿Qué te atrae de sus valores y enfoque educativo?
+Jonathan: La PUCP combina excelencia académica con compromiso social e innovación. Me identifico con su misión de formar profesionales íntegros que sirvan al país.
 
-Entrevistador: ¿Cómo actuarías ante un dilema ético en tu carrera?
-Jonathan: Actuaría con honestidad, transparencia y responsabilidad. Creo que la ética es esencial para generar confianza y asegurar que la tecnología beneficie a las personas.
+Entrevistador: ¿Cómo te gustaría contribuir a la comunidad universitaria si obtienes esta beca?
+Jonathan: Participaría en grupos estudiantiles, tutorías y proyectos de servicio. Quiero compartir lo que sé y aprender de otros para construir comunidad.
 
-Entrevistador: ¿Qué significa para ti la responsabilidad social?
-Jonathan: Significa usar mis conocimientos para aportar a la comunidad, reducir desigualdades y crear oportunidades. Para mí, la educación y la tecnología deben estar al servicio de la sociedad.
+Entrevistador: ¿Tienes alguna experiencia en proyectos de servicio comunitario o voluntariado? ¿Qué aprendiste de esa experiencia?
+Jonathan: Apoyé a vecinos adultos mayores durante la pandemia y participé en campañas de reciclaje. Aprendí empatía, responsabilidad y el valor del trabajo conjunto.
 
-Entrevistador: ¿Cómo contribuirías al ambiente universitario?
-Jonathan: Participaría activamente en organizaciones estudiantiles, compartiría mis conocimientos con mis compañeros y promovería una cultura de respeto y colaboración.
+Entrevistador: ¿Cómo definirías tus valores personales y cómo crees que impactan en tu vida diaria?
+Jonathan: Honestidad, responsabilidad y solidaridad. Guían mis decisiones, mi forma de estudiar y cómo me relaciono con las personas.
 
-Entrevistador: Si tuvieras que liderar un equipo en un proyecto, ¿cómo lo harías?
-Jonathan: Establecería metas claras, asignaría roles según fortalezas y fomentaría la comunicación abierta. Creo en liderar con el ejemplo y motivar desde el respeto.
+Sección: Preguntas sobre Organización y Manejo del Tiempo
 
-Entrevistador: ¿Qué harías si tuvieras un conflicto con un compañero de grupo?
-Jonathan: Escucharía su punto de vista, expresaría el mío con respeto y buscaría un acuerdo que beneficie al equipo. Si fuera necesario, pediría mediación.
+Entrevistador: ¿Cómo organizas tu tiempo para cumplir con tus responsabilidades académicas y personales?
+Jonathan: Uso una agenda, priorizo tareas y divido objetivos en pasos pequeños. Reservo tiempos de descanso para mantener el rendimiento.
 
-Entrevistador: ¿Cómo resolverías un problema académico que te impide avanzar?
-Jonathan: Analizaría la causa, pediría orientación a docentes o tutores y dedicaría tiempo extra para dominar el tema. La perseverancia y pedir ayuda son claves para superar obstáculos.
+Entrevistador: ¿Cuál es tu rutina diaria de estudio y cómo te aseguras de cumplir con tus objetivos?
+Jonathan: Estudio en bloques, repaso apuntes y resuelvo ejercicios. Cada semana reviso avances y ajusto el plan según resultados.
+
+Entrevistador: ¿Cómo equilibras tus estudios con otras actividades o responsabilidades extracurriculares?
+Jonathan: Planifico con anticipación y establezco límites de tiempo. El equilibrio con deporte y familia me ayuda a mantener motivación y foco.
+
+Entrevistador: ¿Tienes alguna técnica o estrategia de estudio que te haya ayudado en tu rendimiento académico?
+Jonathan: Uso mapas mentales y resúmenes. Explico en voz alta como si enseñara; así detecto vacíos y consolido el aprendizaje.
+
+Sección: Preguntas Finales y de Autoconocimiento
+
+Entrevistador: ¿Qué te hace diferente de otros estudiantes que solicitan esta beca?
+Jonathan: Mi combinación de disciplina, curiosidad y compromiso social. Busco aprender a fondo y aplicar lo aprendido en proyectos con impacto.
+
+Entrevistador: ¿Cómo describirías tu personalidad en tres palabras y por qué?
+Jonathan: Responsable, perseverante y curioso. Porque cumplo mis compromisos, persisto ante desafíos y me gusta explorar nuevas ideas.
+
+Entrevistador: ¿Qué te gustaría que los entrevistadores recuerden sobre ti después de esta entrevista?
+Jonathan: Que estoy genuinamente motivado, con valores firmes y dispuesto a contribuir activamente a la universidad y al país.
+
+Entrevistador: Si tuvieras la oportunidad de dar un consejo a otros jóvenes que buscan una beca, ¿qué les dirías?
+Jonathan: Que confíen en sí mismos, se preparen con constancia y busquen servir a otros; el aprendizaje se fortalece cuando se comparte.
+
+Sección: Dimensión 1 — Motivación Académica y Profesional
+
+Entrevistador: ¿Qué te motiva a buscar una educación superior en la PUCP?
+Jonathan: La calidad académica, la investigación y el enfoque humano de la PUCP. Quiero formarme integralmente y aportar desde la ingeniería.
+
+Entrevistador: ¿Cómo decidiste qué carrera querías estudiar y qué esperas lograr con ella?
+Jonathan: Exploré mis intereses en ciencia, tecnología y resolución de problemas. Espero desarrollar soluciones útiles, éticas y sostenibles.
+
+Entrevistador: ¿Qué impacto te gustaría tener en tu campo de estudio en el futuro?
+Jonathan: Impulsar automatización responsable, mejorar procesos y promover acceso a tecnología para comunidades con menos recursos.
+
+Entrevistador: ¿Cómo planeas aplicar los conocimientos que adquieras en la universidad a la vida real?
+Jonathan: Participando en proyectos interdisciplinarios y emprendimientos sociales que conecten teoría con necesidades concretas.
+
+Entrevistador: ¿Tienes algún modelo a seguir en tu área de interés? ¿Por qué te inspira?
+Jonathan: Admiro a ingenieros que lideran con ética y visión. Me inspiran docentes y profesionales que convierten conocimiento en servicio.
+
+Entrevistador: ¿Qué significa para ti tener éxito académico?
+Jonathan: Comprender profundamente, aplicar con criterio y mantener integridad y colaboración en el trabajo.
+
+Entrevistador: ¿Cómo influye esta beca en tus metas académicas y personales?
+Jonathan: Me da estabilidad para enfocarme en aprender, investigar y participar en iniciativas que beneficien a otros.
+
+Entrevistador: ¿Qué esperas aprender, además del contenido académico, en la universidad?
+Jonathan: Liderazgo, comunicación, trabajo en equipo y pensamiento crítico para enfrentar retos complejos.
+
+Entrevistador: ¿Por qué eliges la PUCP sobre otras universidades en Perú o en el extranjero?
+Jonathan: Por su prestigio, compromiso social y oportunidades de investigación. Me identifico con su misión y comunidad.
+
+Entrevistador: ¿Cómo imaginas tu vida dentro de cinco años en términos académicos y profesionales?
+Jonathan: Graduado, participando en proyectos de innovación y quizá en posgrados, contribuyendo a soluciones con impacto real.
+
+Sección: Dimensión 2 — Autoconocimiento y Desarrollo Personal
+
+Entrevistador: ¿Cuáles son tus principales habilidades y talentos? ¿Cómo los has desarrollado?
+Jonathan: Pensamiento lógico, creatividad y trabajo colaborativo. Los desarrollé en competencias, proyectos y actividades extracurriculares.
+
+Entrevistador: ¿Qué áreas de ti mismo(a) crees que necesitas mejorar y cómo planeas hacerlo?
+Jonathan: Manejo del estrés y priorización. Planeo mejorar con organización, descansos activos y pidiendo apoyo cuando lo necesite.
+
+Entrevistador: ¿Cómo definirías tu personalidad en unas pocas palabras?
+Jonathan: Persistente, curioso y empático. Me esfuerzo por aprender y comprender a los demás.
+
+Entrevistador: ¿Qué experiencias personales han tenido el mayor impacto en quién eres hoy?
+Jonathan: Participar en voluntariados y competir en torneos me enseñó resiliencia, disciplina y el valor del trabajo en equipo.
+
+Entrevistador: ¿Qué valores personales consideras más importantes y cómo los pones en práctica?
+Jonathan: Honestidad y responsabilidad; estudio con dedicación y cumplo compromisos. Solidaridad; busco apoyar cuando puedo.
+
+Entrevistador: ¿Qué has aprendido de tus éxitos y fracasos hasta ahora?
+Jonathan: Del éxito, la importancia de la constancia; del fracaso, que aprender y ajustar el rumbo es parte del crecimiento.
+
+Entrevistador: ¿Cómo manejas la crítica y el feedback de los demás?
+Jonathan: Escucho con apertura, separo la emoción del mensaje y uso el feedback para mejorar procesos y resultados.
+
+Entrevistador: ¿Qué haces para salir de tu zona de confort?
+Jonathan: Me inscribo en retos nuevos, presento proyectos y busco roles donde tenga que aprender habilidades distintas.
+
+Entrevistador: ¿Cuáles son tus tres principales metas de vida?
+Jonathan: Aprender continuamente, contribuir a mi comunidad y construir una carrera con propósito y ética.
+
+Entrevistador: ¿Cómo describirías tus emociones al imaginarte obteniendo esta beca?
+Jonathan: Siento entusiasmo, gratitud y compromiso de honrar la oportunidad con esfuerzo y servicio.
+
+Sección: Dimensión 3 — Compromiso Social y Valores Comunitarios
+
+Entrevistador: ¿Tienes alguna experiencia en voluntariado o servicio a la comunidad? ¿Qué aprendiste de ella?
+Jonathan: Sí, apoyé a personas mayores y participé en iniciativas ambientales. Aprendí empatía, organización y trabajo solidario.
+
+Entrevistador: ¿Cómo contribuyes al bienestar de tu entorno, ya sea en casa, en la escuela o en la comunidad?
+Jonathan: Colaboro en proyectos, respeto normas y promuevo hábitos responsables. Busco sumar donde estoy.
+
+Entrevistador: ¿Qué significa para ti “compromiso social”?
+Jonathan: Actuar con responsabilidad hacia otros, usar habilidades para servir y participar activamente en mejorar nuestro entorno.
+
+Entrevistador: ¿Cómo planeas aportar a la comunidad universitaria si logras ingresar a la PUCP?
+Jonathan: Integrarme en grupos, tutorías y proyectos de impacto; compartir aprendizajes y construir redes de apoyo.
+
+Entrevistador: ¿Cómo crees que tu carrera te permitirá impactar positivamente a tu comunidad?
+Jonathan: La ingeniería ofrece herramientas para optimizar procesos y crear soluciones accesibles; quiero enfocarlas en necesidades locales.
+
+Entrevistador: ¿Qué te motiva a ayudar a los demás, incluso cuando no es una obligación?
+Jonathan: La convicción de que el conocimiento tiene sentido cuando se comparte y mejora la vida de otros.
+
+Entrevistador: ¿Cuáles son las causas sociales que más te preocupan actualmente?
+Jonathan: Educación de calidad, inclusión tecnológica y cuidado del medio ambiente. Quiero contribuir desde mi formación.
+
+Entrevistador: ¿Te gustaría participar en actividades extracurriculares en la universidad? ¿De qué tipo?
+Jonathan: Sí, en clubes de ingeniería, voluntariado y grupos de innovación, para aprender y servir en equipo.
+
+Entrevistador: ¿Cómo crees que puedes usar tus conocimientos futuros para mejorar la sociedad?
+Jonathan: Diseñando soluciones eficientes, sostenibles y accesibles, y formando equipos que trabajen con ética y propósito.
+
+Entrevistador: ¿Cuál es tu opinión sobre la responsabilidad social que tienen los profesionales en su campo?
+Jonathan: Es fundamental: aplicar conocimiento con integridad, considerar impacto y buscar el bien común en cada proyecto.
+
+Sección: Dimensión 4 — Habilidades Interpersonales y Resolución de Problemas
+
+Entrevistador: ¿Cómo sueles manejar los conflictos en tu vida diaria?
+Jonathan: Escucho, clarifico metas compartidas y propongo acuerdos. Si es necesario, pido mediación para avanzar.
+
+Entrevistador: ¿Qué haces cuando tienes opiniones diferentes a las de tus compañeros o amigos?
+Jonathan: Presento mis ideas con respeto, pregunto y busco puntos en común. La diversidad de opiniones mejora las soluciones.
+
+Entrevistador: Cuéntanos sobre una vez en la que ayudaste a resolver un problema en equipo.
+Jonathan: En un proyecto de robótica, reorganizamos tareas y mejoramos la comunicación; logramos integrar sensores y control a tiempo.
+
+Entrevistador: ¿Cómo reaccionas ante situaciones de presión o estrés?
+Jonathan: Priorizo, divido tareas y mantengo descansos breves. Pido apoyo cuando es conveniente y mantengo enfoque en objetivos.
+
+Entrevistador: ¿Cuál ha sido la situación más difícil que has enfrentado en tu vida y cómo la resolviste?
+Jonathan: Adaptarme a cambios en mi entorno académico; lo enfrenté con organización, diálogo con docentes y constancia diaria.
+
+Entrevistador: ¿Qué importancia le das al trabajo en equipo y cómo contribuyes en un grupo?
+Jonathan: Es clave para proyectos complejos. Contribuyo comunicando claramente, apoyando a otros y cumpliendo mis responsabilidades.
+
+Entrevistador: ¿Cómo te comunicas cuando estás en desacuerdo con alguien?
+Jonathan: Con respeto, datos claros y apertura para ajustar ideas. Procuro entender el contexto y evitar juicios precipitados.
+
+Entrevistador: ¿Qué haces para mejorar tu comunicación con los demás?
+Jonathan: Practico la escucha activa, pido feedback y adapto mi mensaje al público y al objetivo del equipo.
+
+Entrevistador: ¿Cómo te aseguras de mantener relaciones sanas y positivas?
+Jonathan: Establezco límites, cumplo acuerdos y cuido el respeto mutuo. Valoro reconocer el esfuerzo de los demás.
+
+Entrevistador: ¿Qué estrategias utilizas para resolver problemas de manera efectiva y rápida?
+Jonathan: Defino el problema, genero opciones, prototipo y evalúo resultados. Aprendo de errores y estandarizo soluciones útiles.
 `;
 
     function generateGaps() {
       const container = document.getElementById('interview');
       container.innerHTML = '';
 
-      // Split each Q/A block robustly: on blank lines OR whenever a new speaker line starts
-      const blocks = originalText
-        .trim()
-        .split(/\n\s*\n|(?=\n?Entrevistador:)|(?=\n?Jonathan:)/)
-        .map(b => b.trim())
-        .filter(b => b.length);
+      // Split robustly: new blocks on lines starting with Sección, Entrevistador, or Jonathan
+      const blocks = originalText.trim().split(/\n(?=Sección:|Entrevistador:|Jonathan:)/);
 
       blocks.forEach(block => {
         const idx = block.indexOf(':');
@@ -97,6 +238,14 @@ Jonathan: Analizaría la causa, pediría orientación a docentes o tutores y ded
 
         const div = document.createElement('div');
         div.className = 'exchange';
+
+        if (speaker.toLowerCase() === 'sección') {
+          const sectionDiv = document.createElement('div');
+          sectionDiv.className = 'section';
+          sectionDiv.textContent = content;
+          container.appendChild(sectionDiv);
+          return;
+        }
 
         if (speaker.toLowerCase() === 'jonathan') {
           div.innerHTML = `<div class="jonathan"><strong>${speaker}:</strong> ${applyGaps(content, 0.45)}</div>`;
