@@ -44,10 +44,10 @@ Entrevistador: ¿Qué asignaturas son tus favoritas y por qué?
 Jonathan: Matemáticas y física porque explican cómo funciona el mundo y sostienen la ingeniería. Programación también, porque me permite transformar ideas en aplicaciones prácticas.
 
 Entrevistador: Cuéntanos sobre un proyecto o actividad académica que te haya entusiasmado mucho.
-Jonathan: Diseñé con mi equipo un prototipo de vehículo autónomo para un concurso escolar. Aprendí a integrar sensores, control y trabajo colaborativo para alcanzar un objetivo común.
+Jonathan: Un proyecto que me entusiasmó mucho fue cuando en el colegio hicimos una feria de ciencias y mi grupo presentó un experimento sobre energías renovables. Me gustó porque aprendí cosas nuevas, trabajamos en equipo y pudimos explicar a otros cómo funcionaba nuestro experimento.
 
 Entrevistador: ¿Tienes algún mentor, profesor o figura que haya influido en tu decisión de estudiar esta carrera?
-Jonathan: Sí, mi profesor de física me inspiró con su pasión y claridad. Me mostró que la ingeniería puede convertir conocimiento en soluciones que ayudan a la gente.
+Jonathan: Sí, mi hermano. Me explicó en qué consistia la carrera y al ver su desarrollo durante su etapa universitaria pude concluir mi decisión de estudiar esta carrera.
 
 Entrevistador: ¿Qué habilidades consideras esenciales para tener éxito en la carrera que elegiste?
 Jonathan: Disciplina, pensamiento crítico, curiosidad constante y trabajo en equipo. También comunicación efectiva para presentar ideas y escuchar aportes de otros.
@@ -78,7 +78,7 @@ Entrevistador: ¿Cómo equilibras tus estudios con otras actividades o responsab
 Jonathan: Planifico con anticipación y establezco límites de tiempo. El equilibrio con deporte y familia me ayuda a mantener motivación y foco.
 
 Entrevistador: ¿Tienes alguna técnica o estrategia de estudio que te haya ayudado en tu rendimiento académico?
-Jonathan: Uso mapas mentales y resúmenes. Explico en voz alta como si enseñara; así detecto vacíos y consolido el aprendizaje.
+Jonathan: Realizar un examen al final del día para comprobar que he aprendido completamente todo lo visto en el día.
 
 Sección: Preguntas Finales y de Autoconocimiento
 
@@ -109,7 +109,7 @@ Entrevistador: ¿Cómo planeas aplicar los conocimientos que adquieras en la uni
 Jonathan: Participando en proyectos interdisciplinarios y emprendimientos sociales que conecten teoría con necesidades concretas.
 
 Entrevistador: ¿Tienes algún modelo a seguir en tu área de interés? ¿Por qué te inspira?
-Jonathan: Admiro a ingenieros que lideran con ética y visión. Me inspiran docentes y profesionales que convierten conocimiento en servicio.
+Jonathan: A mi hermano, pues pude ver como se superaba a medida que avanzaba en esta misma carrera lo cual quiere decir que va a ser todo un desafío para mí, y eso me llama la atención.
 
 Entrevistador: ¿Qué significa para ti tener éxito académico?
 Jonathan: Comprender profundamente, aplicar con criterio y mantener integridad y colaboración en el trabajo.
@@ -199,7 +199,7 @@ Entrevistador: ¿Qué haces cuando tienes opiniones diferentes a las de tus comp
 Jonathan: Presento mis ideas con respeto, pregunto y busco puntos en común. La diversidad de opiniones mejora las soluciones.
 
 Entrevistador: Cuéntanos sobre una vez en la que ayudaste a resolver un problema en equipo.
-Jonathan: En un proyecto de robótica, reorganizamos tareas y mejoramos la comunicación; logramos integrar sensores y control a tiempo.
+Jonathan: Una vez, durante un proyecto grupal en el colegio, tuvimos dificultades para organizarnos porque cada uno quería trabajar de una forma distinta. Propuse que hiciéramos una reunión para dividir las tareas según las fortalezas de cada integrante y establecer un cronograma. Gracias a eso logramos coordinarnos mejor.
 
 Entrevistador: ¿Cómo reaccionas ante situaciones de presión o estrés?
 Jonathan: Priorizo, divido tareas y mantengo descansos breves. Pido apoyo cuando es conveniente y mantengo enfoque en objetivos.
@@ -248,7 +248,7 @@ Jonathan: Defino el problema, genero opciones, prototipo y evalúo resultados. A
         }
 
         if (speaker.toLowerCase() === 'jonathan') {
-          div.innerHTML = `<div class="jonathan"><strong>${speaker}:</strong> ${applyGaps(content, 0.45)}</div>`;
+          div.innerHTML = `<div class="jonathan"><strong>${speaker}:</strong> ${applyGaps(content, 0.25)}</div>`;
         } else {
           div.innerHTML = `<div class="interviewer"><strong>${speaker}:</strong> ${content}</div>`;
         }
@@ -257,7 +257,7 @@ Jonathan: Defino el problema, genero opciones, prototipo y evalúo resultados. A
       });
     }
 
-    function applyGaps(text, density = 0.45) {
+    function applyGaps(text, density = 0.25) {
       const words = text.split(/\s+/);
       const numGaps = Math.max(1, Math.floor(words.length * density));
       const gapIndices = new Set();
